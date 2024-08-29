@@ -41,8 +41,8 @@ def set_alarm():
             alarms.append(alarm_time)
         display_alarms()
     except ValueError:
-        status_label.config(text="Invalid inputs. Please enter only numbers.")
-        window.after(2000, lambda: status_label.config(text=""))
+        status_label.config(text="Invalid inputs. Please enter only numbers.", bg="#D4AC0D")
+        window.after(1000, lambda: status_label.config(text="", bg="#3251c2"))
 
 alarm_labels = {}
 
@@ -95,6 +95,8 @@ window.geometry("500x600")
 window.config(bg="#3251c2")
 window.resizable(width=False, height=False)
 
+status_label = tk.Label(window, text="", fg="white", bg="#3251c2", font=("Arial", 14))
+status_label.place(x=80, y=510)
 
 submit_button = tk.Button(window, text="Set Your Alarm", fg="Black", bg="#D4AC0D", width=15, command=set_alarm, font=(20))
 submit_button.place(x=160, y=140)
